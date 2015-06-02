@@ -20,28 +20,26 @@ if being on the real ARM hardware. Execute following command:
 build.sh
 --------
 
-build.sh is the main script, that must be run first. It creates a rootfs
-folder specified in DROOTFS variable. You can change DROOTFS to /mnt, i.e.
-mount folder where you've mounted the second partition of your SD card.
+`build.sh` is the main script, that must be run first. It creates a rootfs
+folder specified in `DROOTFS` variable. You can change `DROOTFS` to `/mnt`,
+i.e. mount folder where you've mounted the second partition of your SD card.
 This would create Debian image directly on the SD card.
 
-After creating the rootfs folder build.sh invokes debootstrap's fisrt
-stage, that creates basic root file system. Then vsdeb.sh and QEMU will
-be copied to the newly created rootfs and executed via chroot.
+After creating the rootfs folder `build.sh` invokes debootstrap's first
+stage, that creates basic root file system. Then `vsdeb.sh` and QEMU will
+be copied to the newly created rootfs and executed via `chroot`.
 
 Custom configuration files, packages etc. must be copied to the final rootfs
-via build.sh.
+via `build.sh`.
 
 vsdeb.sh
 --------
 
-vsdeb.sh will be executed in the virtual machine. This script installs
+`vsdeb.sh` will be executed in the virtual machine. This script installs
 additional Debian packages, creates root password etc.
 
-So far additional packages will be installed in two steps:
+So far additional packages are divided into multiple categories like *core*,
+*network*, *firmware* etc.
 
-1. core packages like OpenVPN, SSH erver etc.
-2. software development packages like CMake, git, libraries etc.
-
-You can reduce the size of the production rootfs via not installing the
-development packages.
+You can reduce the size of the production rootfs via commenting/modifying
+related `apt-get` invocations.

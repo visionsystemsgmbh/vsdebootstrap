@@ -27,7 +27,13 @@ echo baltos > /etc/hostname
 apt-get update
 
 # install core packages
-yes "Y" | apt-get install openvpn can-utils openssh-server dstat modemmanager iw wpasupplicant lsof whois tmux vim
+yes "Y" | apt-get install mc dstat lsof whois tmux vim usbutils
+
+# install network packages
+yes "Y" | apt-get install openvpn can-utils openssh-server modemmanager iw wpasupplicant ethtool
+
+# install firmware
+yes "Y" | apt-get install firmware-realtek firmware-ti-connectivity firmware-ralink
 
 # install packages for software development
 yes "Y" | apt-get install git tig cmake strace swig libtool automake autoconf libudev-dev pkg-config
