@@ -22,7 +22,34 @@ fi
 
 cp /usr/bin/qemu-arm-static $DROOTFS/usr/bin/
 cp vsdeb.sh $DROOTFS/usr/bin/
+
+# check, if VS packages were already downloaded
+debavail=0
+for a in packages/*.deb; do
+	test -f "$a" || continue
+	debavail=1
+done
+
+# if no *.deb files found, download from VS FTP
+if [[ $debavail == 0 ]] ; then
+	echo No *.deb files. Downloading ...
+	wget -nd -m -r -e robots=off --no-parent --reject "index.html*" -P packages/ http://ftp.visionsystems.de/pub/multiio/OnRISC/Baltos/deb/
+fi
+
+# copy local packages and fs-overlay
 cp -ra packages $DROOTFS/tmp
+tar cf $DROOTFS/tmp/local-fs-overlay.tar -C fs-overlay/ .
+
+if [ -e .vs_external ]; then
+	source .vs_external
+	if [ -d $VS_EXTERNAL/packages ]; then
+		cp -ra $VS_EXTERNAL/packages $DROOTFS/tmp
+	fi
+	if [ -d $VS_EXTERNAL/fs-overlay ]; then
+		tar cf $DROOTFS/tmp/external-fs-overlay.tar -C $VS_EXTERNAL/fs-overlay/ .
+	fi
+fi
+
 mkdir -p $DROOTFS/dev/pts
 mount devpts $DROOTFS/dev/pts -t devpts
 mount -t proc proc $DROOTFS/proc

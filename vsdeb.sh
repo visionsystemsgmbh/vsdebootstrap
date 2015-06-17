@@ -45,4 +45,12 @@ apt-get install -f
 # create default password for root
 echo "root:sPrpUyL3oeuok" | chpasswd -e
 
+# handle fs-overlay
+tar xf /tmp/local-fs-overlay.tar -C /
+rm /tmp/local-fs-overlay.tar
+if [ -e /tmp/external-fs-overlay.tar ]; then
+	tar xf /tmp/external-fs-overlay.tar -C /
+	rm /tmp/external-fs-overlay.tar
+fi
+
 exit
