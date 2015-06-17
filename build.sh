@@ -22,6 +22,7 @@ fi
 
 cp /usr/bin/qemu-arm-static $DROOTFS/usr/bin/
 cp vsdeb.sh $DROOTFS/usr/bin/
+cp -ra packages $DROOTFS/tmp
 mkdir -p $DROOTFS/dev/pts
 mount devpts $DROOTFS/dev/pts -t devpts
 mount -t proc proc $DROOTFS/proc

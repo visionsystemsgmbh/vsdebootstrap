@@ -27,7 +27,7 @@ echo baltos > /etc/hostname
 apt-get update
 
 # install core packages
-yes "Y" | apt-get install mc dstat lsof whois tmux vim usbutils python-dialog
+yes "Y" | apt-get install mc dstat lsof whois tmux vim usbutils
 
 # install network packages
 yes "Y" | apt-get install openvpn can-utils openssh-server modemmanager iw wpasupplicant hostapd ethtool ser2net telnet telnetd libsocketcan2 nuttcp
@@ -36,7 +36,11 @@ yes "Y" | apt-get install openvpn can-utils openssh-server modemmanager iw wpasu
 yes "Y" | apt-get install firmware-realtek firmware-ti-connectivity firmware-ralink
 
 # install packages for software development
-yes "Y" | apt-get install git tig cmake strace swig libtool automake autoconf libudev-dev pkg-config g++ clang
+yes "Y" | apt-get install git tig cmake strace swig libtool automake autoconf libudev-dev pkg-config g++ clang python-dev
+
+# install local packages
+dpkg -i /tmp/packages/*.deb
+apt-get install -f
 
 # create default password for root
 echo "root:sPrpUyL3oeuok" | chpasswd -e
