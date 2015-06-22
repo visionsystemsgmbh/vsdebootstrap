@@ -33,7 +33,7 @@ done
 # if no *.deb files found, download from VS FTP
 if [[ $debavail == 0 ]] ; then
 	echo No *.deb files. Downloading ...
-	wget -nd -m -r -e robots=off --no-parent --reject "index.html*" -P packages/ http://ftp.visionsystems.de/pub/multiio/OnRISC/Baltos/deb/
+	wget -nd -m -r -e robots=off --no-parent --reject "index.html*" -P packages/ ftp://ftp.visionsystems.de/pub/multiio/OnRISC/Baltos/deb/
 fi
 
 # copy local packages and fs-overlay
