@@ -66,6 +66,6 @@ SD Card Boot
 ------------
 
 `vsdebootstrap` installs kernel onto the same partition as root file system.
-Hence you'll have to take the `uEnv`.txt from this repository. This script
+Hence you'll have to take the `uEnv.txt` from this repository. This script
 will tell U-Boot to mount ext4 partition and start `kernel-fit.itb` from
 `/boot/` folder.
