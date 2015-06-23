@@ -1,0 +1,20 @@
+# 4xx/8xx FTDI mapping
+KERNELS=="1-1.2:1.0", SUBSYSTEMS=="usb", ATTRS{interface}=="NetCOM Plus", ATTRS{bInterfaceNumber}=="00", SYMLINK+="ttyVS0"
+KERNELS=="1-1.2:1.1", SUBSYSTEMS=="usb", ATTRS{interface}=="NetCOM Plus", ATTRS{bInterfaceNumber}=="01", SYMLINK+="ttyVS1"
+KERNELS=="1-1.2:1.2", SUBSYSTEMS=="usb", ATTRS{interface}=="NetCOM Plus", ATTRS{bInterfaceNumber}=="02", SYMLINK+="ttyVS2"
+KERNELS=="1-1.2:1.3", SUBSYSTEMS=="usb", ATTRS{interface}=="NetCOM Plus", ATTRS{bInterfaceNumber}=="03", SYMLINK+="ttyVS3"
+KERNELS=="1-1.3:1.0", SUBSYSTEMS=="usb", ATTRS{interface}=="NetCOM Plus", ATTRS{bInterfaceNumber}=="00", SYMLINK+="ttyVS4"
+KERNELS=="1-1.3:1.1", SUBSYSTEMS=="usb", ATTRS{interface}=="NetCOM Plus", ATTRS{bInterfaceNumber}=="01", SYMLINK+="ttyVS5"
+KERNELS=="1-1.3:1.2", SUBSYSTEMS=="usb", ATTRS{interface}=="NetCOM Plus", ATTRS{bInterfaceNumber}=="02", SYMLINK+="ttyVS6"
+KERNELS=="1-1.3:1.3", SUBSYSTEMS=="usb", ATTRS{interface}=="NetCOM Plus", ATTRS{bInterfaceNumber}=="03", SYMLINK+="ttyVS7"
+
+KERNEL=="ttyO1", SYMLINK+="ttyVS0"
+KERNEL=="ttyO2", SYMLINK+="ttyVS1"
+
+# Sierra Wireless card
+SUBSYSTEMS=="usb", DRIVERS=="qcserial", ATTRS{bInterfaceNumber}=="03", SYMLINK+="atcmd0"
+
+# Huawei MU609 card
+SUBSYSTEMS=="usb", DRIVERS=="option", ATTRS{bInterfaceNumber}=="02", SYMLINK+="atcmd0"
+SUBSYSTEMS=="usb", DRIVERS=="option", ATTRS{bInterfaceNumber}=="04", SYMLINK+="atcmd1"
+SUBSYSTEMS=="usb", DRIVERS=="option", ATTRS{bInterfaceNumber}=="06", SYMLINK+="atcmd2"

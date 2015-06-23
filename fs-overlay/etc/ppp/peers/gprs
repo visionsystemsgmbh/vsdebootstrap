@@ -1,0 +1,11 @@
+#debug
+
+/dev/atcmd0
+
+115200
+hide-password
+noauth
+connect "/usr/sbin/chat -v -f /etc/chatscripts/gprs"
+defaultroute
+noipdefault
+usepeerdns

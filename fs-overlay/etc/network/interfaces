@@ -1,0 +1,36 @@
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto eth1
+iface eth1 inet static
+        address 192.168.254.254
+        netmask 255.255.255.0
+
+# The secondary network interface
+#auto eth0
+iface eth0 inet static
+        address 192.168.253.254
+        netmask 255.255.255.0
+
+# The wireless interface
+#auto wlan0
+iface wlan0 inet static
+        address 192.168.127.254
+	netmask 255.255.255.0
+        wpa-driver nl80211
+        wpa-conf /etc/wpa_supplicant.conf
+
+# The GSM interface
+#auto ppp0
+iface ppp0 inet ppp
+        provider gprs
+        # set pin of the SIM card
+        #pre-up echo -e "at+cpin="1234"\r" > /dev/atcmd0
+        # wakeup from powersave
+        pre-up echo -e "at+cfun=1\r" > /dev/atcmd0
+        # you can change or remove this timeout - depends on pin and cfun=0 usage in post-down
+        pre-up sleep 10
+        # go to powersave
+        #post-down echo -e "at+cfun=0\r" > /dev/atcmd0
