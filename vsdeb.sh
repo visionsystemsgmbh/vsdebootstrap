@@ -1,4 +1,4 @@
-#1/bin/sh
+#!/bin/sh
 
 /debootstrap/debootstrap --second-stage
 
@@ -30,13 +30,13 @@ apt-get update
 yes "Y" | apt-get install mc dstat lsof whois tmux vim usbutils
 
 # install network packages
-yes "Y" | apt-get install openvpn can-utils openssh-server modemmanager iw wpasupplicant hostapd ethtool ser2net telnet telnetd libsocketcan2 nuttcp
+yes "Y" | apt-get install openvpn can-utils openssh-server modemmanager iw wpasupplicant hostapd ethtool ser2net telnet telnetd libsocketcan2 nuttcp ppp ntp ntpdate
 
 # install firmware
 yes "Y" | apt-get install firmware-realtek firmware-ti-connectivity firmware-ralink
 
 # install packages for software development
-yes "Y" | apt-get install git tig cmake strace swig libtool automake autoconf libudev-dev pkg-config g++ clang python-dev
+yes "Y" | apt-get install git tig cmake strace swig libtool automake autoconf libudev-dev pkg-config g++ clang python-dev libconfig-dev
 
 # install local packages
 dpkg -i /tmp/packages/*.deb
