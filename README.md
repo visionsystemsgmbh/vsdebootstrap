@@ -15,7 +15,7 @@ Dependencies
 `deboostrap` needs QEMU for the second stage. Execute following command to
 install required binaries:
 
-`apt-get install qemu-system-arm qemu-user-static`
+`apt-get install debootstrap qemu-system-arm qemu-user-static`
 
 build.sh
 --------
@@ -69,3 +69,9 @@ SD Card Boot
 Hence you'll have to take the `uEnv.txt` from this repository. This script
 will tell U-Boot to mount ext4 partition and start `kernel-fit.itb` from
 `/boot/` folder.
+
+Your first i.e. FAT partition should have only following files:
+
+* `MLO`
+* `u-boot.img`
+* `uEnv.txt`
