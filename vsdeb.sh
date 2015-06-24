@@ -27,7 +27,7 @@ echo baltos > /etc/hostname
 apt-get update
 
 # install core packages
-yes "Y" | apt-get install mc dstat lsof whois tmux vim usbutils
+yes "Y" | apt-get install mc dstat lsof whois tmux vim usbutils psmisc
 
 # install network packages
 yes "Y" | apt-get install openvpn can-utils openssh-server modemmanager iw wpasupplicant hostapd ethtool ser2net telnet telnetd libsocketcan2 nuttcp ppp ntp ntpdate
