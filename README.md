@@ -20,10 +20,11 @@ install required binaries:
 build.sh
 --------
 
-`build.sh` is the main script, that must be run first. It creates a rootfs
-folder specified in `DROOTFS` variable. You can change `DROOTFS` to `/mnt`,
-i.e. mount folder where you've mounted the second partition of your SD card.
-This would create Debian image directly on the SD card.
+`build.sh` is the main script, that must be run first and requires *superuser*
+permissions. It creates a rootfs folder specified in `DROOTFS` variable.
+You can change `DROOTFS` to `/mnt`, i.e. mount folder where you've mounted the
+second partition of your SD card. This would create Debian image directly on
+the SD card.
 
 After creating the rootfs folder `build.sh` invokes debootstrap's first
 stage, that creates basic root file system. Then `vsdeb.sh` and QEMU will
