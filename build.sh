@@ -1,21 +1,20 @@
+#!/bin/sh
+
 DROOTFS=rootfs
 mkdir -p $DROOTFS
-rc=$?
-if [[ $rc != 0 ]] ; then
+if [ $? -ne 0 ]; then
         echo Failed to create rootfs folder
         exit 1
 fi
 
 debootstrap --arch armhf --foreign jessie $DROOTFS http://ftp.de.debian.org/debian/
-rc=$?
-if [[ $rc != 0 ]] ; then
+if [ $? -ne 0 ]; then
         echo debootstrap first stage failed
         exit 1
 fi
 
 modprobe binfmt_misc
-rc=$?
-if [[ $rc != 0 ]] ; then
+if [ $? -ne 0 ]; then
         echo failed to load binfmt_misc driver
         exit 1
 fi
@@ -31,7 +30,7 @@ for a in packages/*.deb; do
 done
 
 # if no *.deb files found, download from VS FTP
-if [[ $debavail == 0 ]] ; then
+if [ $debavail -eq 0 ]; then
 	echo No *.deb files. Downloading ...
 	wget -nd -m -r -e robots=off --no-parent --reject "index.html*" -P packages/ ftp://ftp.visionsystems.de/pub/multiio/OnRISC/Baltos/deb/
 fi
@@ -54,8 +53,7 @@ mkdir -p $DROOTFS/dev/pts
 mount devpts $DROOTFS/dev/pts -t devpts
 mount -t proc proc $DROOTFS/proc
 chroot $DROOTFS /bin/bash -c "/usr/bin/vsdeb.sh"
-rc=$?
-if [[ $rc != 0 ]] ; then
+if [ $? -ne 0 ]; then
         echo chroot into rootfs failed
         exit 1
 fi
