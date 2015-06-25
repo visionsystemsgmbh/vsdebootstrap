@@ -7,6 +7,9 @@ if [ $? -ne 0 ]; then
         exit 1
 fi
 
+# clean DROOTFS
+rm -fr $DROOTFS/*
+
 debootstrap --arch armhf --foreign jessie $DROOTFS http://ftp.de.debian.org/debian/
 if [ $? -ne 0 ]; then
         echo debootstrap first stage failed
