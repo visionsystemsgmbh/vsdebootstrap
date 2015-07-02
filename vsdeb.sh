@@ -27,7 +27,7 @@ echo baltos > /etc/hostname
 apt-get update
 
 # install core packages
-yes "Y" | apt-get install mc dstat lsof whois tmux vim usbutils psmisc policykit-1
+yes "Y" | apt-get install mc dstat lsof whois tmux vim usbutils psmisc policykit-1 bzip2 libconfig9 minicom
 
 # install network packages
 yes "Y" | apt-get install openvpn can-utils openssh-server modemmanager iw wpasupplicant hostapd ethtool ser2net telnet telnetd libsocketcan2 nuttcp ppp ntp ntpdate
@@ -40,7 +40,9 @@ yes "Y" | apt-get install git tig cmake strace swig libtool automake autoconf li
 
 # install local packages
 dpkg -i /tmp/packages/*.deb
-apt-get install -f
+yes "Y" | apt-get install -f
+apt-get clean
+rm -fr /tmp/packages
 
 # create default password for root
 echo "root:sPrpUyL3oeuok" | chpasswd -e
