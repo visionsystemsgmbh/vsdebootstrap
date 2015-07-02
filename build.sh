@@ -43,11 +43,14 @@ cp -ra packages $DROOTFS/tmp
 tar cf $DROOTFS/tmp/local-fs-overlay.tar -C fs-overlay/ .
 
 if [ -e .vs_external ]; then
-	source .vs_external
+	echo External BSP exists
+	. ./.vs_external
 	if [ -d $VS_EXTERNAL/packages ]; then
+		echo Copy external packages
 		cp -ra $VS_EXTERNAL/packages $DROOTFS/tmp
 	fi
 	if [ -d $VS_EXTERNAL/fs-overlay ]; then
+		echo Copy external fs-overlay
 		tar cf $DROOTFS/tmp/external-fs-overlay.tar -C $VS_EXTERNAL/fs-overlay/ .
 	fi
 fi
