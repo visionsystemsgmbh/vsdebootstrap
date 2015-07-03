@@ -8,6 +8,17 @@ KERNELS=="1-1.3:1.1", SUBSYSTEMS=="usb", ATTRS{interface}=="NetCOM Plus", ATTRS{
 KERNELS=="1-1.3:1.2", SUBSYSTEMS=="usb", ATTRS{interface}=="NetCOM Plus", ATTRS{bInterfaceNumber}=="02", SYMLINK+="ttyVS6"
 KERNELS=="1-1.3:1.3", SUBSYSTEMS=="usb", ATTRS{interface}=="NetCOM Plus", ATTRS{bInterfaceNumber}=="03", SYMLINK+="ttyVS7"
 
+# Baltos 1080 FTDI mapping
+KERNELS=="1-1:1.0", SUBSYSTEMS=="usb", ATTRS{interface}=="Quad RS232-HS", ATTRS{bInterfaceNumber}=="00", SYMLINK+="ttyVS0"
+KERNELS=="1-1:1.1", SUBSYSTEMS=="usb", ATTRS{interface}=="Quad RS232-HS", ATTRS{bInterfaceNumber}=="01", SYMLINK+="ttyVS1"
+KERNELS=="1-1:1.2", SUBSYSTEMS=="usb", ATTRS{interface}=="Quad RS232-HS", ATTRS{bInterfaceNumber}=="02", SYMLINK+="ttyVS2"
+KERNELS=="1-1:1.3", SUBSYSTEMS=="usb", ATTRS{interface}=="Quad RS232-HS", ATTRS{bInterfaceNumber}=="03", SYMLINK+="ttyVS3"
+KERNELS=="2-1:1.0", SUBSYSTEMS=="usb", ATTRS{interface}=="Quad RS232-HS", ATTRS{bInterfaceNumber}=="00", SYMLINK+="ttyVS4"
+KERNELS=="2-1:1.1", SUBSYSTEMS=="usb", ATTRS{interface}=="Quad RS232-HS", ATTRS{bInterfaceNumber}=="01", SYMLINK+="ttyVS5"
+KERNELS=="2-1:1.2", SUBSYSTEMS=="usb", ATTRS{interface}=="Quad RS232-HS", ATTRS{bInterfaceNumber}=="02", SYMLINK+="ttyVS6"
+KERNELS=="2-1:1.3", SUBSYSTEMS=="usb", ATTRS{interface}=="Quad RS232-HS", ATTRS{bInterfaceNumber}=="03", SYMLINK+="ttyVS7"
+
+# Baltos 5221/3220/2110
 KERNEL=="ttyO1", SYMLINK+="ttyVS0"
 KERNEL=="ttyO2", SYMLINK+="ttyVS1"
 
