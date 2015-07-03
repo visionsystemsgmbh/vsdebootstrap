@@ -30,13 +30,13 @@ apt-get update
 yes "Y" | apt-get install mc dstat lsof whois tmux vim usbutils psmisc policykit-1 bzip2 libconfig9 minicom
 
 # install network packages
-yes "Y" | apt-get install openvpn can-utils openssh-server modemmanager iw wpasupplicant hostapd ethtool ser2net telnet telnetd libsocketcan2 nuttcp ppp ntp ntpdate
+yes "Y" | apt-get install openvpn can-utils openssh-server modemmanager iw wpasupplicant hostapd ethtool ser2net telnet telnetd libsocketcan2 nuttcp ppp ntp ntpdate socat
 
 # install firmware
 yes "Y" | apt-get install firmware-realtek firmware-ti-connectivity firmware-ralink
 
 # install packages for software development
-yes "Y" | apt-get install git tig cmake strace swig libtool automake autoconf libudev-dev pkg-config g++ clang python-dev libconfig-dev
+yes "Y" | apt-get install git tig quilt cmake strace swig libtool automake autoconf libudev-dev pkg-config g++ clang python-dev libconfig-dev
 
 # install local packages
 dpkg -i /tmp/packages/*.deb
