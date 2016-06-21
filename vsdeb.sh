@@ -30,7 +30,7 @@ apt-get update
 yes "Y" | apt-get install mc dstat lsof whois tmux vim usbutils psmisc policykit-1 bzip2 libconfig9 minicom rcconf
 
 # install network packages
-yes "Y" | apt-get install openvpn can-utils openssh-server modemmanager iw wpasupplicant hostapd ethtool ser2net telnet telnetd libsocketcan2 nuttcp ppp ntp ntpdate socat
+yes "Y" | apt-get install openvpn can-utils openssh-server modemmanager iw wpasupplicant hostapd ethtool ser2net telnet telnetd libsocketcan2 nuttcp ppp ntp ntpdate socat bridge-utils
 
 # install firmware
 yes "Y" | apt-get install firmware-realtek firmware-ti-connectivity firmware-ralink
