@@ -1,2 +1,6 @@
 .vs_external
 rootfs/
+*.img
+*.vfat
+*.ext4
+*.log
