@@ -45,6 +45,7 @@ tar cf $DROOTFS/tmp/local-fs-overlay.tar -C fs-overlay/ .
 if [ -e .vs_external ]; then
 	echo External BSP exists
 	. ./.vs_external
+	echo $VS_EXTERNAL
 	if [ -d $VS_EXTERNAL/packages ]; then
 		echo Copy external packages
 		cp -ra $VS_EXTERNAL/packages $DROOTFS/tmp
@@ -62,4 +63,12 @@ chroot $DROOTFS /bin/bash -c "/usr/bin/vsdeb.sh"
 if [ $? -ne 0 ]; then
         echo chroot into rootfs failed
         exit 1
+fi
+
+# create SD-card image
+if [ "$1" != "" ]; then
+	if [ "$1" = "genimg" ]; then
+		echo Create an SD-card image
+		genimage --rootpath rootfs/ --tmppath genimage.tmp --inputpath . --outputpath . --config genimage-baltos.cfg
+	fi
 fi
