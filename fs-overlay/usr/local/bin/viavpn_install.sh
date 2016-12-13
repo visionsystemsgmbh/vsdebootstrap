@@ -22,13 +22,15 @@ fi
 echo Extracting files
 
 mkdir -p /tmp/vscom
-unzip /mnt/$viavpn_pkg -d /tmp/vscom
+unzip -o /mnt/$viavpn_pkg -d /tmp/vscom
 
 echo Installing certificates
 mkdir -p /opt/viavpn
-unzip /tmp/vscom/viavpn-data.zip -d /opt/viavpn/data
+unzip -o /tmp/vscom/viavpn-data.zip -d /opt/viavpn/data
 
 echo Installing required Debian packages
 apt update
 dpkg -i /tmp/vscom/*.deb
 yes "Y" | apt-get install -f
+
+echo Installation completed
